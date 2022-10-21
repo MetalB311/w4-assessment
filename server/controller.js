@@ -27,14 +27,14 @@ module.exports = {
     
     
     
-    addCompliment: (req, res) => {
-        let newCompliment = {
+    addChore: (req, res) => {
+        let newChore = {
             type:'text',
-            id:"compliment",
+            id: chore,
         };
         
-        compliments.push(newCompliment)
-        res.status(200)
+        chore.push(newChore)
+        res.status(200).send(chore)
     }
 
 
