@@ -16,6 +16,17 @@ module.exports = {
       
         res.status(200).send(randomFortune)
     },
+    
+    getChore: (req, res) => {
+        const chore = ['dishes', 'laundry', 'mopping', 'trash', 'sweeping'];
+        let randomIndex = Math.floor(Math.random() * chore.length);
+        let randomChore = chore[randomIndex];
+        
+        res.status(200).send(randomChore)
+    },
+    
+    
+    
     addCompliment: (req, res) => {
         let newCompliment = {
             type:'text',

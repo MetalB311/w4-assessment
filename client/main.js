@@ -1,6 +1,7 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const addComplimentBtn = document.getElementById("addCompliment")
+const choreBtn = document.getElementById("chore")
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -32,8 +33,17 @@ function submitHandler(e) {
     addCompliment(bodyObj)
     compliment.value = ''
 }
+const getChore = () => {
+    axios.get("http://localhost:4000/api/chore/") 
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+}
+
 
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 addComplimentBtn.addEventListener('submit', addCompliment)
+choreBtn.addEventListener('click', getChore)
