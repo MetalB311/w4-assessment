@@ -28,7 +28,7 @@ function submitHandler(e) {
     e.preventDefault()
     let chore = document.querySelector('#chore')
 
-    let bodyObj = {
+    let body = {
         chore: chore.value
     }
     addChore(body)
