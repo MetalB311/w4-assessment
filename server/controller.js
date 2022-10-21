@@ -10,11 +10,20 @@ module.exports = {
         res.status(200).send(randomCompliment);
     },
     getFortune: (req, res) => {
-        const fortune = ['A faithful friend is a strong defense', 'A lifetime friend shall soon be made', 'A pleasant surprise is waiting for you', 'All the effort you are making will ultimately pay off'];
+        const fortune = ['A faithful friend is a strong defense', 'A lifetime friend shall soon be made', 'A pleasant surprise is waiting for you', 'All the effort you are making will ultimately pay off', 'All will go well with your new project', 'Do not make extra work for yourself'];
         let randomIndex = Math.floor(Math.random() * fortune.length);
         let randomFortune = fortune[randomIndex];
       
         res.status(200).send(randomFortune)
+    },
+    addCompliment: (req, res) => {
+        let newCompliment = {
+            type:'text',
+            id:"compliment",
+        };
+        
+        compliments.push(newCompliment)
+        res.status(200)
     }
 
 
