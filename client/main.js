@@ -18,8 +18,8 @@ const getFortune = () => {
     });
 };
 
-const addChore = body => axios.post('http://localhost:4000/api/chore/', body).then(res => {
-    
+const addChore = () => axios.post('http://localhost:4000/api/chore/', body).then(res => {
+    e.preventDefault()
     alert('chore submitted')
     
 })
@@ -28,10 +28,10 @@ function submitHandler(e) {
     e.preventDefault()
     let chore = document.querySelector('#chore')
 
-    let body = {
+    let bodyObj = {
         chore: chore.value
     }
-    addChore(body)
+    addChore(bodyObj)
     chore.value = ''
 }
 

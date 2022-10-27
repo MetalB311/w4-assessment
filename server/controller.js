@@ -28,6 +28,8 @@ module.exports = {
     
     
     addChore: (req, res) => {
+        // let {newChore} = chore
+
         let newChore = {
             type:'text',
             id: chore,
