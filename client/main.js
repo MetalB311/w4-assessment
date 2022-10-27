@@ -2,6 +2,7 @@ const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const addChoreForm = document.getElementById("addChore")
 const choreBtn = document.getElementById("chore")
+const activityBtn = document.getElementById("activityButton")
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -46,8 +47,18 @@ const getChore = () => {
 }
 
 
+const getActivity = () => {
+    axios.get("http://localhost:4000/api/activity/")
+        .then(res => {
+            const data = res.data;
+            alert(data);
+    });
+};
+
+
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 addChoreForm.addEventListener('submit', submitHandler)
 choreBtn.addEventListener('click', getChore)
+activityBtn.addEventListener('click', getActivity)

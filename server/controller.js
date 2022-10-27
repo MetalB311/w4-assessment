@@ -35,5 +35,13 @@ module.exports = {
         chore.push(theChore)
         res.status(200).send(chore)
         console.log(chore)
+    },
+
+    getActivity: (req, res) => {
+        const activity = ['Running', 'Catch', 'swimming', 'hiking', 'biking', 'fishing'];
+        let randomIndex = Math.floor(Math.random() * activity.length);
+        let randomActivity = activity[randomIndex];
+      
+        res.status(200).send(randomActivity)
     }
 }  
