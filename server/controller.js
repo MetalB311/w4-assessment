@@ -1,3 +1,5 @@
+const chore = ['dishes', 'laundry', 'mopping', 'trash', 'sweeping'];
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -18,7 +20,6 @@ module.exports = {
     },
     
     getChore: (req, res) => {
-        const chore = ['dishes', 'laundry', 'mopping', 'trash', 'sweeping'];
         let randomIndex = Math.floor(Math.random() * chore.length);
         let randomChore = chore[randomIndex];
         
@@ -28,17 +29,11 @@ module.exports = {
     
     
     addChore: (req, res) => {
-        // let {newChore} = chore
-
-        let newChore = {
-            type:'text',
-            id: chore,
-        };
         
-        chore.push(newChore)
+        let theChore = req.body.chore
+        
+        chore.push(theChore)
         res.status(200).send(chore)
+        console.log(chore)
     }
-
-
-
 }  

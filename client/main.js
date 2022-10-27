@@ -1,6 +1,6 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
-const addChoreBtn = document.getElementById("addChore")
+const addChoreForm = document.getElementById("addChore")
 const choreBtn = document.getElementById("chore")
 
 const getCompliment = () => {
@@ -18,23 +18,24 @@ const getFortune = () => {
     });
 };
 
-const addChore = () => axios.post('http://localhost:4000/api/chore/', body).then(res => {
-    e.preventDefault()
-    alert('chore submitted')
+const addChore = (body) => {
+    axios.post('http://localhost:4000/api/chore/', body).then(res => {
+        alert('chore submitted')
     
-})
-
+    })
+}
 function submitHandler(e) {
     e.preventDefault()
-    let chore = document.querySelector('#chore')
+    let chore = document.querySelector('#newChore')
 
     let bodyObj = {
         chore: chore.value
     }
+    console.log(chore)
+    console.log(bodyObj)
     addChore(bodyObj)
-    chore.value = ''
+    // chore.value = ('')
 }
-
 
 const getChore = () => {
     axios.get("http://localhost:4000/api/chore/") 
@@ -48,5 +49,5 @@ const getChore = () => {
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-addChoreBtn.addEventListener('submit', addChore)
+addChoreForm.addEventListener('submit', submitHandler)
 choreBtn.addEventListener('click', getChore)
